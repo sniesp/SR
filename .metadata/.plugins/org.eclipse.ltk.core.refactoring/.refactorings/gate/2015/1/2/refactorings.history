@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;gate/LocalServer&apos; to &apos;LocalServer.hpp&apos;" description="Rename resource &apos;LocalServer&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="LocalServer" name="LocalServer.hpp" stamp="1420556179774" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;gate/LocalServer.hpp&apos; to &apos;TcpAcceptor.hpp&apos;" description="Rename resource &apos;LocalServer.hpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="LocalServer.hpp" name="TcpAcceptor.hpp" stamp="1420557682613" updateReferences="true"/>
+</session>

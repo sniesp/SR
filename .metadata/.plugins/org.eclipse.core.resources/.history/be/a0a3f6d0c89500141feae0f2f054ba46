@@ -1,0 +1,19 @@
+#include <iostream>
+#include <boost/asio.hpp>
+
+#include "TcpAcceptor.hpp"
+#include "TcpConnection.hpp"
+
+int main(int argc, char *argv[])
+{
+	boost::asio::io_service io_service;
+	boost::asio::ip::tcp::socket socket(io_service);
+	boost::asio::ip::tcp::endpoint endpoint("127.0.0.1", 5555);
+	socket.connect(endpoint);
+	TcpAcceptor acc(socket);
+
+	while(1);
+
+    return 0;
+}
+

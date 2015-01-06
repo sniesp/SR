@@ -1,0 +1,120 @@
+/*
+ * TcpConnection.hpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+#ifndef TCPCONNECTION_HPP_
+#define TCPCONNECTION_HPP_
+
+#include <iostream>
+#include <boost/asio.hpp>
+#include <boost/thread.hpp>
+#include <jsoncpp/json/json.h>
+
+using namespace boost::asio;
+
+class TcpConnection
+{
+public:
+	TcpConnection(boost::shared_ptr<ip::tcp::socket> pSocket) :
+			pSocket(pSocket), stop(false)
+	{
+		boost::thread transmitThread(boost::bind(&TcpConnection::handleTransmit, this));
+		boost::thread receiveThread(boost::bind(&TcpConnection::handleReceive, this));
+	}
+
+	~TcpConnection()
+	{
+		stop = true;
+		pSocket->close();
+	}
+
+private:
+	void handleTransmit()
+	{
+		while(!stop)
+		{
+			boost::shared_ptr<Json::Value> pJsonData((Json::Value*)0);
+
+			{
+				boost::mutex::scoped_lock lock(transmitQueueMutex);
+				if(!transmitQueue.empty())
+				{
+					pJsonData = transmitQueue.front();
+					transmitQueue.pop_front();
+				}
+				// automatic mutex unlock (via 'lock' object destructor)
+			}
+
+			if (pJsonData != 0) // data popped from queue
+			{
+				Json::FastWriter writer;
+				std::string serializedData = writer.write(*pJsonData);
+				int serializedDataSize = strlen(serializedData.c_str());
+
+				boost::scoped_ptr<char*> transmitBuffer(new char[serializedDataSize + 4]);
+
+				memcpy((void*)(*transmitBuffer), &serializedDataSize, 4);
+				memcpy((void*)((*transmitBuffer) + 4), serializedData.c_str(), serializedDataSize);
+
+				int transmittedDataCount = 0;
+
+				while (transmittedDataCount < serializedDataSize + 4)
+				{
+					transmittedDataCount +=
+							pSocket->send(
+									buffer((const void*)((*transmitBuffer) + transmittedDataCount), (serializedDataSize + 4 - transmittedDataCount)),
+									(serializedDataSize + 4 - transmittedDataCount)
+									);
+				}
+			}
+		}
+	}
+
+	void handleReceive()
+	{
+		while(!stop)
+		{
+			int serializedDataSize = 0;
+			pSocket->read_some(buffer((const void*)(&serializedDataSize), 4));
+
+			boost::scoped_ptr<char[]> receiveBuffer(new char[serializedDataSize]);
+
+			int receivedDataCount = 0;
+
+			while (receivedDataCount < serializedDataSize)
+			{
+				receivedDataCount +=
+						pSocket->receive(
+								buffer((const void*)((*receiveBuffer) + receivedDataCount), (serializedDataSize - receivedDataCount)),
+								(serializedDataSize - receivedDataCount)
+								);
+			}
+
+			boost::shared_ptr<Json::Value> pJsonData(new Json::Value());
+			Json::Reader reader;
+			reader.parse(*receiveBuffer, *receiveBuffer + serializedDataSize, *pJsonData);
+
+			boost::mutex::scoped_lock(receiveQueueMutex);
+			receiveQueue.push_back(pJsonData);
+
+			// FIXME
+			Json::StyledWriter w;
+			std::cout << w.write(*pJsonData) << std::endl;
+		}
+	}
+
+	boost::shared_ptr<ip::tcp::socket> pSocket;
+	volatile bool stop;
+
+	boost::mutex transmitQueueMutex;
+	std::list<boost::shared_ptr<Json::Value> > transmitQueue;
+
+	boost::mutex receiveQueueMutex;
+	std::list<boost::shared_ptr<Json::Value> > receiveQueue;
+
+};
+
+#endif /* TCPCONNECTION_HPP_ */

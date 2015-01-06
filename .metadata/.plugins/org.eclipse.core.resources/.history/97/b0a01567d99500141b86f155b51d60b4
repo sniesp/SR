@@ -1,0 +1,48 @@
+#include <iostream>
+#include <boost/asio.hpp>
+
+#include "TcpConnection.hpp"
+
+using namespace boost::asio;
+
+int main(int argc, char *argv[])
+{
+	std::cout << "chat client" << std::endl;
+
+	io_service io_service;
+
+	ip::tcp::endpoint endpoint;
+    if(argc < 2)
+    {
+		ip::tcp::resolver resolver(io_service);
+		ip::tcp::resolver::query query("127.0.0.1", "5555");
+		ip::tcp::resolver::iterator iterator = resolver.resolve(query);
+    }
+    else if (argc == 2)
+    {
+		ip::tcp::resolver resolver(io_service);
+		ip::tcp::resolver::query query(argv[1], "5555");
+		ip::tcp::resolver::iterator iterator = resolver.resolve(query);
+    }
+    else if (argc > 2)
+    {
+		ip::tcp::resolver resolver(io_service);
+		ip::tcp::resolver::query query(argv[1], argv[2]);
+		ip::tcp::resolver::iterator iterator = resolver.resolve(query);
+    }
+
+	boost::shared_ptr<ip::tcp::socket> pSocket(new ip::tcp::socket(io_service));
+	pSocket->connect(*iterator);
+	TcpConnection acc(pSocket);
+
+	boost::shared_ptr<Json::Value> data(new Json::Value());
+	(*data)["abc"] = "123";
+	(*data)["abcd"] = 123;
+
+	acc.pushJsonData(data);
+
+	while(1);
+
+    return 0;
+}
+

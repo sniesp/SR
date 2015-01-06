@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string.h>
+#include <sstream>
+#include <jsoncpp/json/json.h>
+
+#include <boost/asio.hpp>
+
+using namespace boost::asio;
+
+int main(int argc, char *argv[])
+{
+//	Json::Value value;
+//	value["integer"] = 123;
+//	value["string"] = std::string("abc");
+//
+//	std::stringstream ss;
+//	Json::StyledWriter writer;
+//	std::string serializedValue = writer.write(value);
+//
+//	std::cout << strlen(serializedValue.c_str()) << std::endl;
+//	std::cout << serializedValue.c_str() << std::endl;
+//
+//	Json::Value newValue;
+//	Json::Reader reader;
+//	reader.parse(serializedValue, newValue);
+//
+//	std::cout << writer.write(newValue) << std::endl;
+
+	io_service io_service;
+	ip::tcp::acceptor acceptor(io_service);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
+

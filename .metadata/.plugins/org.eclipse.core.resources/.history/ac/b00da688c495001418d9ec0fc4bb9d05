@@ -1,0 +1,61 @@
+/*
+ * TcpAcceptor.hpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+#ifndef TCPACCEPTOR_HPP_
+#define TCPACCEPTOR_HPP_
+
+#include <boost/asio.hpp>
+#include <boost/thread.hpp>
+
+#include "TcpConnection.hpp"
+
+using namespace boost::asio;
+
+class TcpAcceptor
+{
+public:
+	TcpAcceptor(io_service & io_service, unsigned short port = 5555)
+	{
+		// constructor runs a thread which accepts all the incoming connections
+		boost::thread acceptor_thread(boost::bind(&TcpAcceptor::acceptConnections, this, ref(io_service), port));
+	}
+
+	std::list<boost::scoped_ptr<TcpConnection> > getConnections()
+	{
+		boost::mutex::scoped_lock lock(connectionListMutex); // lock mutex
+
+		std::list<boost::scoped_ptr<TcpConnection> > result(connectionList.begin(), connectionList.end()); // copy connection list
+		connectionList.clear(); // clear connection list
+
+		// here automatic unlock mutex (via 'lock' object destructor)
+
+		return result;
+	}
+
+private:
+	void acceptConnections(io_service & io_service, unsigned short port)
+	{
+		ip::tcp::acceptor acceptor(io_service, ip::tcp::endpoint(ip::tcp::v4(), port)); // acceptor socket
+
+		// loop accepting connections, each connection accepted creates a new object representing a single connection
+		while(true)
+		{
+			boost::shared_ptr<ip::tcp::socket> pSocket(new ip::tcp::socket(io_service));
+			acceptor.accept(*pSocket);
+			boost::shared_ptr<TcpConnection> newConnection(new TcpConnection(pSocket));
+
+			boost::mutex::scoped_lock lock(connectionListMutex); // lock mutex
+			connectionList.push_back(newConnection);
+			// here automatic unlock mutex (via 'lock' object destructor)
+		}
+	}
+
+	boost::mutex connectionListMutex;
+	std::list<boost::shared_ptr<TcpConnection> > connectionList;
+};
+
+#endif /* TCPACCEPTOR_HPP_ */

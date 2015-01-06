@@ -1,0 +1,36 @@
+/*
+ * LocalServer.hpp
+ *
+ *  Created on: Jan 2, 2015
+ *      Author: slawek
+ */
+
+#ifndef LOCALSERVER_HPP_
+#define LOCALSERVER_HPP_
+
+#include <boost/asio.hpp>
+#include <boost/bind.hpp>
+
+using namespace boost::asio;
+
+/*
+ * This class represents LAN server, to which local clients may connect to. Clients send requests to the LocalServer, and LocalServer may send data(incoming from WAN) to it`s clients.
+ */
+class LocalServer
+{
+public:
+    LocalServer& getInstance();
+
+private:
+    LocalServer(unsigned short port = 5555);
+
+    void accept();
+    void handleAccept(boost::shared_ptr<ip::tcp::socket> pSocket, const boost::system::error_code& error);
+
+    unsigned short port_;
+    io_service ioService_;
+    ip::tcp::endpoint endpoint_;
+    ip::tcp::acceptor acceptor_;
+};
+
+#endif /* LOCALSERVER_HPP_ */

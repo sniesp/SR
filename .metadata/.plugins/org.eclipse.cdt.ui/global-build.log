@@ -1,0 +1,2809 @@
+20:19:19 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:40:52 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:45:31: error: conversion from ‘long int’ to ‘const Json::Value’ is ambiguous
+  (*initialMessage)["address"] = nodeAddress; // this node address
+                               ^
+../main.cpp:12:11: note: candidates are:
+  long int nodeAddress = 1234567890;
+           ^
+In file included from /usr/include/jsoncpp/json/json.h:10:0,
+                 from ../TcpConnection.hpp:14,
+                 from ../main.cpp:4:
+/usr/include/jsoncpp/json/value.h:239:7: note: Json::Value::Value(bool)
+       Value( bool value );
+       ^
+/usr/include/jsoncpp/json/value.h:222:7: note: Json::Value::Value(const char*) <near match>
+       Value( const char *value );
+       ^
+/usr/include/jsoncpp/json/value.h:222:7: note:   no known conversion for argument 1 from ‘long int’ to ‘const char*’
+/usr/include/jsoncpp/json/value.h:221:7: note: Json::Value::Value(double)
+       Value( double value );
+       ^
+/usr/include/jsoncpp/json/value.h:219:7: note: Json::Value::Value(Json::Value::UInt64)
+       Value( UInt64 value );
+       ^
+/usr/include/jsoncpp/json/value.h:218:7: note: Json::Value::Value(Json::Value::Int64)
+       Value( Int64 value );
+       ^
+/usr/include/jsoncpp/json/value.h:216:7: note: Json::Value::Value(Json::Value::UInt)
+       Value( UInt value );
+       ^
+/usr/include/jsoncpp/json/value.h:215:7: note: Json::Value::Value(Json::Value::Int)
+       Value( Int value );
+       ^
+/usr/include/jsoncpp/json/value.h:214:7: note: Json::Value::Value(Json::ValueType) <near match>
+       Value( ValueType type = nullValue );
+       ^
+/usr/include/jsoncpp/json/value.h:214:7: note:   no known conversion for argument 1 from ‘long int’ to ‘Json::ValueType’
+/usr/include/jsoncpp/json/value.h:243:14: error:   initializing argument 1 of ‘Json::Value& Json::Value::operator=(const Json::Value&)’
+       Value &operator=( const Value &other );
+              ^
+../main.cpp:60:2: warning: lambda expressions only available with -std=c++11 or -std=gnu++11 [enabled by default]
+  }, boost::ref(conn)));
+  ^
+../main.cpp:60:21: error: no matching function for call to ‘bind(main(int, char**)::__lambda0, const boost::reference_wrapper<TcpConnection>)’
+  }, boost::ref(conn)));
+                     ^
+../main.cpp:60:21: note: candidates are:
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1298:5: note: template<class R, class F> boost::_bi::bind_t<R, F, boost::_bi::list0> boost::bind(F)
+     BOOST_BIND(F f)
+     ^
+/usr/include/boost/bind/bind.hpp:1298:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 1 argument, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1306:5: note: template<class R, class F, class A1> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_1<A1>::type> boost::bind(F, A1)
+     BOOST_BIND(F f, A1 a1)
+     ^
+/usr/include/boost/bind/bind.hpp:1306:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   couldn't deduce template parameter ‘R’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1314:5: note: template<class R, class F, class A1, class A2> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(F, A1, A2)
+     BOOST_BIND(F f, A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind.hpp:1314:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 3 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1322:5: note: template<class R, class F, class A1, class A2, class A3> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(F, A1, A2, A3)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind.hpp:1322:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 4 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1330:5: note: template<class R, class F, class A1, class A2, class A3, class A4> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(F, A1, A2, A3, A4)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind.hpp:1330:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 5 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1338:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(F, A1, A2, A3, A4, A5)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind.hpp:1338:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 6 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1346:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(F, A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind.hpp:1346:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 7 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1354:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(F, A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind.hpp:1354:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 8 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1362:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(F, A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind.hpp:1362:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 9 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1370:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(F, A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind.hpp:1370:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 10 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1380:5: note: template<class R, class F> boost::_bi::bind_t<R, F, boost::_bi::list0> boost::bind(boost::type<R>, F)
+     BOOST_BIND(boost::type<R>, F f)
+     ^
+/usr/include/boost/bind/bind.hpp:1380:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1388:5: note: template<class R, class F, class A1> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_1<A1>::type> boost::bind(boost::type<R>, F, A1)
+     BOOST_BIND(boost::type<R>, F f, A1 a1)
+     ^
+/usr/include/boost/bind/bind.hpp:1388:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1396:5: note: template<class R, class F, class A1, class A2> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(boost::type<R>, F, A1, A2)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind.hpp:1396:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1404:5: note: template<class R, class F, class A1, class A2, class A3> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(boost::type<R>, F, A1, A2, A3)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind.hpp:1404:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1412:5: note: template<class R, class F, class A1, class A2, class A3, class A4> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(boost::type<R>, F, A1, A2, A3, A4)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind.hpp:1412:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1420:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(boost::type<R>, F, A1, A2, A3, A4, A5)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind.hpp:1420:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1428:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(boost::type<R>, F, A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind.hpp:1428:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1436:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(boost::type<R>, F, A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind.hpp:1436:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1444:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(boost::type<R>, F, A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind.hpp:1444:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1452:5: note: template<class R, class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<R, F, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(boost::type<R>, F, A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(boost::type<R>, F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind.hpp:1452:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1464:5: note: template<class F> boost::_bi::bind_t<boost::_bi::unspecified, F, boost::_bi::list0> boost::bind(F)
+     BOOST_BIND(F f)
+     ^
+/usr/include/boost/bind/bind.hpp:1464:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 1 argument, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1472:5: note: template<class F, class A1> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_1<A1>::type> boost::bind(F, A1)
+     BOOST_BIND(F f, A1 a1)
+     ^
+/usr/include/boost/bind/bind.hpp:1472:5: note:   template argument deduction/substitution failed:
+../main.cpp: In substitution of ‘template<class F, class A1> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_1<A1>::type> boost::bind(F, A1) [with F = main(int, char**)::__lambda0; A1 = boost::reference_wrapper<TcpConnection>]’:
+../main.cpp:60:21:   required from here
+../main.cpp:60:21: error: template argument for ‘template<class F, class A1> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_1<A1>::type> boost::bind(F, A1)’ uses local type ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+../main.cpp:60:21: error:   trying to instantiate ‘template<class F, class A1> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_1<A1>::type> boost::bind(F, A1)’
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1480:5: note: template<class F, class A1, class A2> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(F, A1, A2)
+     BOOST_BIND(F f, A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind.hpp:1480:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 3 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1488:5: note: template<class F, class A1, class A2, class A3> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(F, A1, A2, A3)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind.hpp:1488:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 4 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1496:5: note: template<class F, class A1, class A2, class A3, class A4> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(F, A1, A2, A3, A4)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind.hpp:1496:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 5 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1504:5: note: template<class F, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(F, A1, A2, A3, A4, A5)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind.hpp:1504:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 6 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1512:5: note: template<class F, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(F, A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind.hpp:1512:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 7 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1520:5: note: template<class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(F, A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind.hpp:1520:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 8 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1528:5: note: template<class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(F, A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind.hpp:1528:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 9 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1536:5: note: template<class F, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<boost::_bi::unspecified, F, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(F, A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(F f, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind.hpp:1536:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   candidate expects 10 arguments, 2 provided
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:17:5: note: template<class R> boost::_bi::bind_t<R, R (*)(), boost::_bi::list0> boost::bind(R (*)())
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) ())
+     ^
+/usr/include/boost/bind/bind_cc.hpp:17:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)()’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:26:5: note: template<class R, class B1, class A1> boost::_bi::bind_t<R, R (*)(B1), typename boost::_bi::list_av_1<A1>::type> boost::bind(R (*)(B1), A1)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1), A1 a1)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:26:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:35:5: note: template<class R, class B1, class B2, class A1, class A2> boost::_bi::bind_t<R, R (*)(B1, B2), typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(R (*)(B1, B2), A1, A2)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2), A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:35:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:46:5: note: template<class R, class B1, class B2, class B3, class A1, class A2, class A3> boost::_bi::bind_t<R, R (*)(B1, B2, B3), typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(R (*)(B1, B2, B3), A1, A2, A3)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3), A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:46:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:57:5: note: template<class R, class B1, class B2, class B3, class B4, class A1, class A2, class A3, class A4> boost::_bi::bind_t<R, R (*)(B1, B2, B3, B4), typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(R (*)(B1, B2, B3, B4), A1, A2, A3, A4)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3, B4), A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:57:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3, B4)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:68:5: note: template<class R, class B1, class B2, class B3, class B4, class B5, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<R, R (*)(B1, B2, B3, B4, B5), typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(R (*)(B1, B2, B3, B4, B5), A1, A2, A3, A4, A5)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3, B4, B5), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:68:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3, B4, B5)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:79:5: note: template<class R, class B1, class B2, class B3, class B4, class B5, class B6, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<R, R (*)(B1, B2, B3, B4, B5, B6), typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(R (*)(B1, B2, B3, B4, B5, B6), A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3, B4, B5, B6), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:79:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3, B4, B5, B6)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:90:5: note: template<class R, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<R, R (*)(B1, B2, B3, B4, B5, B6, B7), typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(R (*)(B1, B2, B3, B4, B5, B6, B7), A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3, B4, B5, B6, B7), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:90:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3, B4, B5, B6, B7)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:101:5: note: template<class R, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class B8, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<R, R (*)(B1, B2, B3, B4, B5, B6, B7, B8), typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(R (*)(B1, B2, B3, B4, B5, B6, B7, B8), A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3, B4, B5, B6, B7, B8), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:101:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3, B4, B5, B6, B7, B8)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_cc.hpp:112:5: note: template<class R, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class B8, class B9, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<R, R (*)(B1, B2, B3, B4, B5, B6, B7, B8, B9), typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(R (*)(B1, B2, B3, B4, B5, B6, B7, B8, B9), A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(BOOST_BIND_ST R (BOOST_BIND_CC *f) (B1, B2, B3, B4, B5, B6, B7, B8, B9), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind_cc.hpp:112:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (*)(B1, B2, B3, B4, B5, B6, B7, B8, B9)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:20:5: note: template<class R, class T, class A1> boost::_bi::bind_t<R, boost::_mfi::mf0<R, T>, typename boost::_bi::list_av_1<A1>::type> boost::bind(R (T::*)(), A1)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (), A1 a1)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:20:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)()’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:30:5: note: template<class R, class T, class A1> boost::_bi::bind_t<R, boost::_mfi::cmf0<R, T>, typename boost::_bi::list_av_1<A1>::type> boost::bind(R (T::*)()const, A1)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) () const, A1 a1)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:30:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)()const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:43:5: note: template<class R, class T, class B1, class A1, class A2> boost::_bi::bind_t<R, boost::_mfi::mf1<R, T, A1>, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(R (T::*)(B1), A1, A2)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1), A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:43:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:54:5: note: template<class R, class T, class B1, class A1, class A2> boost::_bi::bind_t<R, boost::_mfi::cmf1<R, T, A1>, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(R (T::*)(B1)const, A1, A2)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1) const, A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:54:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:67:5: note: template<class R, class T, class B1, class B2, class A1, class A2, class A3> boost::_bi::bind_t<R, boost::_mfi::mf2<R, T, A1, A2>, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(R (T::*)(B1, B2), A1, A2, A3)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2), A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:67:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:78:5: note: template<class R, class T, class B1, class B2, class A1, class A2, class A3> boost::_bi::bind_t<R, boost::_mfi::cmf2<R, T, A1, A2>, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(R (T::*)(B1, B2)const, A1, A2, A3)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2) const, A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:78:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:91:5: note: template<class R, class T, class B1, class B2, class B3, class A1, class A2, class A3, class A4> boost::_bi::bind_t<R, boost::_mfi::mf3<R, T, A1, A2, A3>, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(R (T::*)(B1, B2, B3), A1, A2, A3, A4)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3), A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:91:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:102:5: note: template<class R, class T, class B1, class B2, class B3, class A1, class A2, class A3, class A4> boost::_bi::bind_t<R, boost::_mfi::cmf3<R, T, A1, A2, A3>, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(R (T::*)(B1, B2, B3)const, A1, A2, A3, A4)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3) const, A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:102:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:115:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<R, boost::_mfi::mf4<R, T, A1, A2, A3, A4>, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(R (T::*)(B1, B2, B3, B4), A1, A2, A3, A4, A5)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:115:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:126:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<R, boost::_mfi::cmf4<R, T, A1, A2, A3, A4>, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(R (T::*)(B1, B2, B3, B4)const, A1, A2, A3, A4, A5)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:126:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:139:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<R, boost::_mfi::mf5<R, T, A1, A2, A3, A4, A5>, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5), A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:139:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:150:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<R, boost::_mfi::cmf5<R, T, A1, A2, A3, A4, A5>, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5)const, A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:150:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:163:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<R, boost::_mfi::mf6<R, T, A1, A2, A3, A4, A5, A6>, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5, B6), A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:163:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5, B6)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:174:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<R, boost::_mfi::cmf6<R, T, A1, A2, A3, A4, A5, A6>, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5, B6)const, A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:174:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5, B6)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:187:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<R, boost::_mfi::mf7<R, T, A1, A2, A3, A4, A5, A6, A7>, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5, B6, B7), A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:187:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5, B6, B7)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:198:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<R, boost::_mfi::cmf7<R, T, A1, A2, A3, A4, A5, A6, A7>, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5, B6, B7)const, A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:198:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5, B6, B7)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:211:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class B8, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<R, boost::_mfi::mf8<R, T, A1, A2, A3, A4, A5, A6, A7, A8>, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5, B6, B7, B8), A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7, B8), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:211:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5, B6, B7, B8)’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf_cc.hpp:222:5: note: template<class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class B8, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<R, boost::_mfi::cmf8<R, T, A1, A2, A3, A4, A5, A6, A7, A8>, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(R (T::*)(B1, B2, B3, B4, B5, B6, B7, B8)const, A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7, B8) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind_mf_cc.hpp:222:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘R (T::*)(B1, B2, B3, B4, B5, B6, B7, B8)const’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:21:5: note: template<class Rt2, class R, class T, class A1> boost::_bi::bind_t<Rt2, boost::_mfi::mf0<R, T>, typename boost::_bi::list_av_1<A1>::type> boost::bind(boost::type<R>, R (T::*)(), A1)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (), A1 a1)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:21:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:31:5: note: template<class Rt2, class R, class T, class A1> boost::_bi::bind_t<Rt2, boost::_mfi::cmf0<R, T>, typename boost::_bi::list_av_1<A1>::type> boost::bind(boost::type<R>, R (T::*)()const, A1)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) () const, A1 a1)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:31:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:44:5: note: template<class Rt2, class R, class T, class B1, class A1, class A2> boost::_bi::bind_t<Rt2, boost::_mfi::mf1<R, T, B1>, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(boost::type<R>, R (T::*)(B1), A1, A2)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1), A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:44:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:55:5: note: template<class Rt2, class R, class T, class B1, class A1, class A2> boost::_bi::bind_t<Rt2, boost::_mfi::cmf1<R, T, B1>, typename boost::_bi::list_av_2<A1, A2>::type> boost::bind(boost::type<R>, R (T::*)(B1)const, A1, A2)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1) const, A1 a1, A2 a2)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:55:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:68:5: note: template<class Rt2, class R, class T, class B1, class B2, class A1, class A2, class A3> boost::_bi::bind_t<Rt2, boost::_mfi::mf2<R, T, B1, B2>, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2), A1, A2, A3)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2), A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:68:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:79:5: note: template<class Rt2, class R, class T, class B1, class B2, class A1, class A2, class A3> boost::_bi::bind_t<Rt2, boost::_mfi::cmf2<R, T, B1, B2>, typename boost::_bi::list_av_3<A1, A2, A3>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2)const, A1, A2, A3)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2) const, A1 a1, A2 a2, A3 a3)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:79:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:92:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class A1, class A2, class A3, class A4> boost::_bi::bind_t<Rt2, boost::_mfi::mf3<R, T, B1, B2, B3>, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3), A1, A2, A3, A4)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3), A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:92:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:103:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class A1, class A2, class A3, class A4> boost::_bi::bind_t<Rt2, boost::_mfi::cmf3<R, T, B1, B2, B3>, typename boost::_bi::list_av_4<A1, A2, A3, A4>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3)const, A1, A2, A3, A4)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3) const, A1 a1, A2 a2, A3 a3, A4 a4)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:103:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:116:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<Rt2, boost::_mfi::mf4<R, T, B1, B2, B3, B4>, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4), A1, A2, A3, A4, A5)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:116:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:127:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class A1, class A2, class A3, class A4, class A5> boost::_bi::bind_t<Rt2, boost::_mfi::cmf4<R, T, B1, B2, B3, B4>, typename boost::_bi::list_av_5<A1, A2, A3, A4, A5>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4)const, A1, A2, A3, A4, A5)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:127:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:140:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<Rt2, boost::_mfi::mf5<R, T, B1, B2, B3, B4, B5>, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5), A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:140:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:151:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class A1, class A2, class A3, class A4, class A5, class A6> boost::_bi::bind_t<Rt2, boost::_mfi::cmf5<R, T, B1, B2, B3, B4, B5>, typename boost::_bi::list_av_6<A1, A2, A3, A4, A5, A6>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5)const, A1, A2, A3, A4, A5, A6)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:151:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:164:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<Rt2, boost::_mfi::mf6<R, T, B1, B2, B3, B4, B5, B6>, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5, B6), A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:164:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:175:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class A1, class A2, class A3, class A4, class A5, class A6, class A7> boost::_bi::bind_t<Rt2, boost::_mfi::cmf6<R, T, B1, B2, B3, B4, B5, B6>, typename boost::_bi::list_av_7<A1, A2, A3, A4, A5, A6, A7>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5, B6)const, A1, A2, A3, A4, A5, A6, A7)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:175:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:188:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<Rt2, boost::_mfi::mf7<R, T, B1, B2, B3, B4, B5, B6, B7>, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5, B6, B7), A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:188:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:199:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8> boost::_bi::bind_t<Rt2, boost::_mfi::cmf7<R, T, B1, B2, B3, B4, B5, B6, B7>, typename boost::_bi::list_av_8<A1, A2, A3, A4, A5, A6, A7, A8>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5, B6, B7)const, A1, A2, A3, A4, A5, A6, A7, A8)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:199:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:212:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class B8, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<Rt2, boost::_mfi::mf8<R, T, B1, B2, B3, B4, B5, B6, B7, B8>, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5, B6, B7, B8), A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7, B8), A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:212:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind_mf2_cc.hpp:223:5: note: template<class Rt2, class R, class T, class B1, class B2, class B3, class B4, class B5, class B6, class B7, class B8, class A1, class A2, class A3, class A4, class A5, class A6, class A7, class A8, class A9> boost::_bi::bind_t<Rt2, boost::_mfi::cmf8<R, T, B1, B2, B3, B4, B5, B6, B7, B8>, typename boost::_bi::list_av_9<A1, A2, A3, A4, A5, A6, A7, A8, A9>::type> boost::bind(boost::type<R>, R (T::*)(B1, B2, B3, B4, B5, B6, B7, B8)const, A1, A2, A3, A4, A5, A6, A7, A8, A9)
+     BOOST_BIND(boost::type<Rt2>, R (BOOST_BIND_MF_CC T::*f) (B1, B2, B3, B4, B5, B6, B7, B8) const, A1 a1, A2 a2, A3 a3, A4 a4, A5 a5, A6 a6, A7 a7, A8 a8, A9 a9)
+     ^
+/usr/include/boost/bind/bind_mf2_cc.hpp:223:5: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   ‘main(int, char**)::__lambda0’ is not derived from ‘boost::type<R>’
+  }, boost::ref(conn)));
+                     ^
+In file included from /usr/include/boost/bind.hpp:22:0,
+                 from /usr/include/boost/thread/detail/thread.hpp:29,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/bind/bind.hpp:1728:1: note: template<class A1, class M, class T> boost::_bi::bind_t<typename boost::_bi::dm_result<M T::*, A1>::type, boost::_mfi::dm<M, T>, typename boost::_bi::list_av_1<A1>::type> boost::bind(M T::*, A1)
+ BOOST_BIND( M T::*f, A1 a1 )
+ ^
+/usr/include/boost/bind/bind.hpp:1728:1: note:   template argument deduction/substitution failed:
+../main.cpp:60:21: note:   mismatched types ‘M T::*’ and ‘main(int, char**)::__lambda0’
+  }, boost::ref(conn)));
+                     ^
+../main.cpp:73:27: error: conversion from ‘long int’ to ‘const Json::Value’ is ambiguous
+    (*data)["destination"] = destinationAddress;
+                           ^
+../main.cpp:65:12: note: candidates are:
+   long int destinationAddress;
+            ^
+In file included from /usr/include/jsoncpp/json/json.h:10:0,
+                 from ../TcpConnection.hpp:14,
+                 from ../main.cpp:4:
+/usr/include/jsoncpp/json/value.h:239:7: note: Json::Value::Value(bool)
+       Value( bool value );
+       ^
+/usr/include/jsoncpp/json/value.h:222:7: note: Json::Value::Value(const char*) <near match>
+       Value( const char *value );
+       ^
+/usr/include/jsoncpp/json/value.h:222:7: note:   no known conversion for argument 1 from ‘long int’ to ‘const char*’
+/usr/include/jsoncpp/json/value.h:221:7: note: Json::Value::Value(double)
+       Value( double value );
+       ^
+/usr/include/jsoncpp/json/value.h:219:7: note: Json::Value::Value(Json::Value::UInt64)
+       Value( UInt64 value );
+       ^
+/usr/include/jsoncpp/json/value.h:218:7: note: Json::Value::Value(Json::Value::Int64)
+       Value( Int64 value );
+       ^
+/usr/include/jsoncpp/json/value.h:216:7: note: Json::Value::Value(Json::Value::UInt)
+       Value( UInt value );
+       ^
+/usr/include/jsoncpp/json/value.h:215:7: note: Json::Value::Value(Json::Value::Int)
+       Value( Int value );
+       ^
+/usr/include/jsoncpp/json/value.h:214:7: note: Json::Value::Value(Json::ValueType) <near match>
+       Value( ValueType type = nullValue );
+       ^
+/usr/include/jsoncpp/json/value.h:214:7: note:   no known conversion for argument 1 from ‘long int’ to ‘Json::ValueType’
+/usr/include/jsoncpp/json/value.h:243:14: error:   initializing argument 1 of ‘Json::Value& Json::Value::operator=(const Json::Value&)’
+       Value &operator=( const Value &other );
+              ^
+make: *** [main.o] Error 1
+20:40:56 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:43:16 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:43:21 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:45:20 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:65:9: error: ‘connection’ was not declared in this scope
+  while (connection.connected())
+         ^
+make: *** [main.o] Error 1
+20:45:23 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+20:45:37 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:45:42 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:45:46 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+20:49:05 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘void TcpConnection::handleTransmit()’:
+../TcpConnection.hpp:85:45: error: ISO C++ forbids casting to an array type ‘char []’ [-fpermissive]
+     boost::scoped_ptr<char[]> array((char[])transmitBuffer);
+                                             ^
+../TcpConnection.hpp:85:59: error: no matching function for call to ‘boost::scoped_ptr<char []>::scoped_ptr(char*)’
+     boost::scoped_ptr<char[]> array((char[])transmitBuffer);
+                                                           ^
+../TcpConnection.hpp:85:59: note: candidates are:
+In file included from /usr/include/boost/scoped_ptr.hpp:14:0,
+                 from /usr/include/boost/thread/future.hpp:30,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:68:14: note: boost::scoped_ptr<T>::scoped_ptr(std::auto_ptr<Y>) [with T = char []]
+     explicit scoped_ptr( std::auto_ptr<T> p ) BOOST_NOEXCEPT : px( p.release() )
+              ^
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:68:14: note:   no known conversion for argument 1 from ‘char*’ to ‘std::auto_ptr<char []>’
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:59:14: note: boost::scoped_ptr<T>::scoped_ptr(T*) [with T = char []]
+     explicit scoped_ptr( T * p = 0 ): px( p ) // never throws
+              ^
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:59:14: note:   no known conversion for argument 1 from ‘char*’ to ‘char (*)[]’
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:47:5: note: boost::scoped_ptr<T>::scoped_ptr(const boost::scoped_ptr<T>&) [with T = char []]
+     scoped_ptr(scoped_ptr const &);
+     ^
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:47:5: note:   no known conversion for argument 1 from ‘char*’ to ‘const boost::scoped_ptr<char []>&’
+In file included from /usr/include/boost/smart_ptr/shared_ptr.hpp:30:0,
+                 from /usr/include/boost/shared_ptr.hpp:17,
+                 from /usr/include/boost/asio/detail/shared_ptr.hpp:23,
+                 from /usr/include/boost/asio/detail/socket_ops.hpp:21,
+                 from /usr/include/boost/asio/detail/socket_holder.hpp:20,
+                 from /usr/include/boost/asio/detail/reactive_socket_accept_op.hpp:24,
+                 from /usr/include/boost/asio/detail/reactive_socket_service.hpp:30,
+                 from /usr/include/boost/asio/datagram_socket_service.hpp:28,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:21,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/checked_delete.hpp: In instantiation of ‘void boost::checked_delete(T*) [with T = char []]’:
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:82:35:   required from ‘boost::scoped_ptr<T>::~scoped_ptr() [with T = char []]’
+../TcpConnection.hpp:85:59:   required from here
+/usr/include/boost/checked_delete.hpp:32:47: error: invalid application of ‘sizeof’ to incomplete type ‘char []’
+     typedef char type_must_be_complete[ sizeof(T)? 1: -1 ];
+                                               ^
+/usr/include/boost/checked_delete.hpp:34:5: error: unknown array size in delete
+     delete x;
+     ^
+make: *** [main.o] Error 1
+20:49:09 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:49:28 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘void TcpConnection::handleTransmit()’:
+../TcpConnection.hpp:85:50: error: no matching function for call to ‘boost::scoped_ptr<char*>::scoped_ptr(char*&)’
+     boost::scoped_ptr<char*> array(transmitBuffer);
+                                                  ^
+../TcpConnection.hpp:85:50: note: candidates are:
+In file included from /usr/include/boost/scoped_ptr.hpp:14:0,
+                 from /usr/include/boost/thread/future.hpp:30,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:68:14: note: boost::scoped_ptr<T>::scoped_ptr(std::auto_ptr<Y>) [with T = char*]
+     explicit scoped_ptr( std::auto_ptr<T> p ) BOOST_NOEXCEPT : px( p.release() )
+              ^
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:68:14: note:   no known conversion for argument 1 from ‘char*’ to ‘std::auto_ptr<char*>’
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:59:14: note: boost::scoped_ptr<T>::scoped_ptr(T*) [with T = char*]
+     explicit scoped_ptr( T * p = 0 ): px( p ) // never throws
+              ^
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:59:14: note:   no known conversion for argument 1 from ‘char*’ to ‘char**’
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:47:5: note: boost::scoped_ptr<T>::scoped_ptr(const boost::scoped_ptr<T>&) [with T = char*]
+     scoped_ptr(scoped_ptr const &);
+     ^
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:47:5: note:   no known conversion for argument 1 from ‘char*’ to ‘const boost::scoped_ptr<char*>&’
+make: *** [main.o] Error 1
+20:49:31 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:49:45 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:49:49 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:51:39 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:53:28 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:54:14 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:54:18 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:54:27 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:56:15 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:56:20 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:56:39 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:61:13: error: no match for ‘operator<<’ (operand types are ‘std::ostream {aka std::basic_ostream<char>}’ and ‘std::exception’)
+   std::cout << e << std::endl;
+             ^
+../main.cpp:61:13: note: candidates are:
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/include/c++/4.8/ostream:108:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}’
+/usr/include/c++/4.8/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/include/c++/4.8/ostream:117:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}’
+/usr/include/c++/4.8/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/include/c++/4.8/ostream:127:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘std::ios_base& (*)(std::ios_base&)’
+/usr/include/c++/4.8/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/include/c++/4.8/ostream:166:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘long int’
+/usr/include/c++/4.8/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/include/c++/4.8/ostream:170:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘long unsigned int’
+/usr/include/c++/4.8/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/include/c++/4.8/ostream:174:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘bool’
+In file included from /usr/include/c++/4.8/ostream:609:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from ‘std::exception’ to ‘short int’
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/include/c++/4.8/ostream:181:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘short unsigned int’
+In file included from /usr/include/c++/4.8/ostream:609:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from ‘std::exception’ to ‘int’
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/include/c++/4.8/ostream:192:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘unsigned int’
+/usr/include/c++/4.8/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/include/c++/4.8/ostream:201:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘long long int’
+/usr/include/c++/4.8/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/include/c++/4.8/ostream:205:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘long long unsigned int’
+/usr/include/c++/4.8/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/include/c++/4.8/ostream:220:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘double’
+/usr/include/c++/4.8/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/include/c++/4.8/ostream:224:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘float’
+/usr/include/c++/4.8/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/include/c++/4.8/ostream:232:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘long double’
+/usr/include/c++/4.8/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/include/c++/4.8/ostream:245:7: note:   no known conversion for argument 1 from ‘std::exception’ to ‘const void*’
+In file included from /usr/include/c++/4.8/ostream:609:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from ‘std::exception’ to ‘std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}’
+In file included from /usr/include/boost/exception/detail/object_hex_dump.hpp:16:0,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:28,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/iomanip:235:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setw)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setw __f)
+     ^
+/usr/include/c++/4.8/iomanip:235:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘std::_Setw’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/exception/detail/object_hex_dump.hpp:16:0,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:28,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/iomanip:205:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setprecision)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setprecision __f)
+     ^
+/usr/include/c++/4.8/iomanip:205:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘std::_Setprecision’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/exception/detail/object_hex_dump.hpp:16:0,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:28,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/iomanip:175:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setfill<_CharT>)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setfill<_CharT> __f)
+     ^
+/usr/include/c++/4.8/iomanip:175:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   ‘std::exception’ is not derived from ‘std::_Setfill<_CharT>’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/exception/detail/object_hex_dump.hpp:16:0,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:28,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/iomanip:140:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setbase)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setbase __f)
+     ^
+/usr/include/c++/4.8/iomanip:140:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘std::_Setbase’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/exception/detail/object_hex_dump.hpp:16:0,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:28,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/iomanip:106:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setiosflags)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setiosflags __f)
+     ^
+/usr/include/c++/4.8/iomanip:106:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘std::_Setiosflags’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/exception/detail/object_hex_dump.hpp:16:0,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:28,
+                 from /usr/include/boost/thread.hpp:24,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/iomanip:76:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Resetiosflags)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Resetiosflags __f)
+     ^
+/usr/include/c++/4.8/iomanip:76:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘std::_Resetiosflags’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/detail/container_fwd.hpp:98:0,
+                 from /usr/include/boost/functional/hash/extensions.hpp:17,
+                 from /usr/include/boost/functional/hash/hash.hpp:529,
+                 from /usr/include/boost/functional/hash.hpp:6,
+                 from /usr/include/boost/thread/detail/thread.hpp:37,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/complex:524:5: note: template<class _Tp, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::complex<_Tp>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x)
+     ^
+/usr/include/c++/4.8/complex:524:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   ‘std::exception’ is not derived from ‘const std::complex<_Tp>’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/boost/detail/container_fwd.hpp:96:0,
+                 from /usr/include/boost/functional/hash/extensions.hpp:17,
+                 from /usr/include/boost/functional/hash/hash.hpp:529,
+                 from /usr/include/boost/functional/hash.hpp:6,
+                 from /usr/include/boost/thread/detail/thread.hpp:37,
+                 from /usr/include/boost/thread/thread_only.hpp:22,
+                 from /usr/include/boost/thread/thread.hpp:12,
+                 from /usr/include/boost/thread.hpp:13,
+                 from ../TcpConnection.hpp:13,
+                 from ../main.cpp:4:
+/usr/include/c++/4.8/bitset:1521:5: note: template<class _CharT, class _Traits, long unsigned int _Nb> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::bitset<_Nb>&)
+     operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/include/c++/4.8/bitset:1521:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   ‘std::exception’ is not derived from ‘const std::bitset<_Nb>’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/include/c++/4.8/ostream:548:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘const unsigned char*’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/include/c++/4.8/ostream:543:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘const signed char*’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/include/c++/4.8/ostream:530:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘const char*’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/ostream:609:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘const char*’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/include/c++/4.8/ostream:513:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   mismatched types ‘const _CharT*’ and ‘std::exception’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/include/c++/4.8/ostream:493:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘unsigned char’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/include/c++/4.8/ostream:488:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘signed char’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/include/c++/4.8/ostream:482:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘char’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/include/c++/4.8/ostream:476:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   cannot convert ‘e’ (type ‘std::exception’) to type ‘char’
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/include/c++/4.8/ostream:471:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘std::exception’)
+   std::cout << e << std::endl;
+                ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from ../main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:2753:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2753:5: note:   template argument deduction/substitution failed:
+../main.cpp:61:16: note:   ‘std::exception’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+   std::cout << e << std::endl;
+                ^
+make: *** [main.o] Error 1
+20:56:42 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:56:49 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:56:54 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+20:57:09 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:58:16 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+20:58:20 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+20:58:25 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+21:02:42 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:32:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:02:45 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:32:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:04:54 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:38: error: ‘connection_aborted’ was not declared in this scope
+    throw boost::system::system_error(connection_aborted, "Connection lost.");
+                                      ^
+../TcpConnection.hpp:32:38: note: suggested alternatives:
+In file included from /usr/include/boost/asio/detail/impl/posix_event.ipp:24:0,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/asio/error.hpp:82:3: note:   ‘connection_aborted’
+   connection_aborted = BOOST_ASIO_SOCKET_ERROR(ECONNABORTED),
+   ^
+In file included from /usr/include/boost/asio/detail/throw_error.hpp:19:0,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/error_code.hpp:71:9: note:   ‘connection_aborted’
+         connection_aborted = ECONNABORTED,
+         ^
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:04:58 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:32:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:06:06 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:97: error: no matching function for call to ‘boost::system::system_error::system_error(boost::system::errc::errc_t, const char [17])’
+    throw boost::system::system_error(boost::system::errc::connection_aborted, "Connection lost.");
+                                                                                                 ^
+../TcpConnection.hpp:32:97: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 2 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 2 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   no known conversion for argument 2 from ‘const char [17]’ to ‘const boost::system::error_category&’
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   no known conversion for argument 1 from ‘boost::system::errc::errc_t’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   no known conversion for argument 1 from ‘boost::system::errc::errc_t’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   candidate expects 1 argument, 2 provided
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   candidate expects 1 argument, 2 provided
+In file included from ../main.cpp:4:0:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:06:10 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:32:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:07:34 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:07:38 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘void TcpConnection::pushJsonData(boost::shared_ptr<Json::Value>)’:
+../TcpConnection.hpp:32:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:32:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+In file included from ../TcpAcceptor.hpp:14:0,
+                 from ../main.cpp:4:
+../TcpConnection.hpp: In member function ‘bool TcpConnection::popJsonData(boost::shared_ptr<Json::Value>&)’:
+../TcpConnection.hpp:44:56: error: no matching function for call to ‘boost::system::system_error::system_error(const char [17])’
+    throw boost::system::system_error("Connection lost.");
+                                                        ^
+../TcpConnection.hpp:44:56: note: candidates are:
+In file included from /usr/include/boost/asio/detail/impl/throw_error.ipp:21:0,
+                 from /usr/include/boost/asio/detail/throw_error.hpp:52,
+                 from /usr/include/boost/asio/detail/impl/posix_event.ipp:23,
+                 from /usr/include/boost/asio/detail/posix_event.hpp:95,
+                 from /usr/include/boost/asio/detail/event.hpp:25,
+                 from /usr/include/boost/asio/detail/task_io_service_thread_info.hpp:18,
+                 from /usr/include/boost/asio/impl/handler_alloc_hook.ipp:27,
+                 from /usr/include/boost/asio/handler_alloc_hook.hpp:80,
+                 from /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:21,
+                 from /usr/include/boost/asio/detail/bind_handler.hpp:19,
+                 from /usr/include/boost/asio/detail/wrapped_handler.hpp:18,
+                 from /usr/include/boost/asio/io_service.hpp:25,
+                 from /usr/include/boost/asio/basic_io_object.hpp:19,
+                 from /usr/include/boost/asio/basic_socket.hpp:20,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/system/system_error.hpp:43:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const char*)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:43:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:39:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&, const string&)
+       system_error( int ev, const error_category & ecat,
+       ^
+/usr/include/boost/system/system_error.hpp:39:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:36:7: note: boost::system::system_error::system_error(int, const boost::system::error_category&)
+       system_error( int ev, const error_category & ecat )
+       ^
+/usr/include/boost/system/system_error.hpp:36:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:33:7: note: boost::system::system_error::system_error(boost::system::error_code, const char*)
+       system_error( error_code ec, const char* what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:33:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:30:7: note: boost::system::system_error::system_error(boost::system::error_code, const string&)
+       system_error( error_code ec, const std::string & what_arg )
+       ^
+/usr/include/boost/system/system_error.hpp:30:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/boost/system/system_error.hpp:27:7: note: boost::system::system_error::system_error(boost::system::error_code)
+       system_error( error_code ec )
+       ^
+/usr/include/boost/system/system_error.hpp:27:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘boost::system::error_code’
+/usr/include/boost/system/system_error.hpp:22:32: note: boost::system::system_error::system_error(const boost::system::system_error&)
+     class BOOST_SYMBOL_VISIBLE system_error : public std::runtime_error
+                                ^
+/usr/include/boost/system/system_error.hpp:22:32: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘const boost::system::system_error&’
+make: *** [main.o] Error 1
+21:10:02 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:14:40 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+21:14:57 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:15:51 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+21:16:37 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+21:16:51 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+21:19:39 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+21:20:03 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:27:29 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from /usr/include/boost/shared_ptr.hpp:17:0,
+                 from /usr/include/boost/asio/detail/shared_ptr.hpp:23,
+                 from /usr/include/boost/asio/detail/socket_ops.hpp:21,
+                 from /usr/include/boost/asio/detail/socket_holder.hpp:20,
+                 from /usr/include/boost/asio/detail/reactive_socket_accept_op.hpp:24,
+                 from /usr/include/boost/asio/detail/reactive_socket_service.hpp:30,
+                 from /usr/include/boost/asio/datagram_socket_service.hpp:28,
+                 from /usr/include/boost/asio/basic_datagram_socket.hpp:21,
+                 from /usr/include/boost/asio.hpp:21,
+                 from ../main.cpp:2:
+/usr/include/boost/smart_ptr/shared_ptr.hpp: In instantiation of ‘boost::shared_ptr<T>::shared_ptr(Y*) [with Y = char; T = char*]’:
+../TcpConnection.hpp:97:49:   required from here
+/usr/include/boost/smart_ptr/shared_ptr.hpp:352:47: error: cannot convert ‘char*’ to ‘char**’ in initialization
+     explicit shared_ptr( Y * p ): px( p ), pn() // Y must be complete
+                                               ^
+make: *** [main.o] Error 1
+21:27:59 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+21:28:09 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:31:23 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+21:31:33 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+21:34:49 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+21:36:00 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+21:36:40 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.
+21:39:12 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+21:39:19 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:39:55 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:40:24 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:42:01 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:45:33 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+21:45:50 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:48:08 **** Incremental Build of configuration Debug for project gate ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: gate
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "gate"  ./main.o   -ljsoncpp -lboost_system -lboost_thread
+Finished building target: gate
+ 
+21:48:22 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:49:40 **** Incremental Build of configuration Debug for project gate ****
+make all 
+make: Nothing to be done for `all'.
+21:49:48 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/include/c++/4.8.2 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: clientt
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "clientt"  ./main.o   -lpthread -ljsoncpp -lboost_system -lboost_thread
+Finished building target: clientt
+ 
+21:50:12 **** Incremental Build of configuration Debug for project clientt ****
+make all 
+make: Nothing to be done for `all'.

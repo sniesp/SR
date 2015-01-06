@@ -1,0 +1,14 @@
+/*
+ * LocalServer.cpp
+ *
+ *  Created on: Jan 2, 2015
+ *      Author: slawek
+ */
+
+#include "LocalServer.hpp"
+
+LocalServer::LocalServer(unsigned short port) : port_(port), endpoint_(ip::tcp::v4(), port), acceptor_(ioService_, endpoint_)
+{
+
+}
+

@@ -1,0 +1,64 @@
+#include <iostream>
+#include <boost/asio.hpp>
+
+#include "TcpConnection.hpp"
+
+using namespace boost::asio;
+
+int main(int argc, char *argv[])
+{
+	std::cout << "chat client" << std::endl;
+
+	io_service io_service;
+
+	ip::tcp::endpoint endpoint;
+    if(argc < 2)
+    {
+		ip::tcp::resolver resolver(io_service);
+		ip::tcp::resolver::query query("127.0.0.1", "5555");
+		endpoint = *(resolver.resolve(query));
+    }
+    else if (argc == 2)
+    {
+		ip::tcp::resolver resolver(io_service);
+		ip::tcp::resolver::query query(argv[1], "5555");
+		endpoint = *(resolver.resolve(query));
+    }
+    else if (argc > 2)
+    {
+		ip::tcp::resolver resolver(io_service);
+		ip::tcp::resolver::query query(argv[1], argv[2]);
+		endpoint = *(resolver.resolve(query));
+    }
+
+	boost::shared_ptr<ip::tcp::socket> pSocket(new ip::tcp::socket(io_service));
+	pSocket->connect(endpoint);
+
+	TcpConnection conn(pSocket);
+
+	// initiate connection
+	boost::shared_ptr<Json::Value> initialMessage(new Json::Value());
+	(*initialMessage)["peerType"] = "client";
+	(*initialMessage)["address"] = nodeAddress; // node MAC address
+	conn.pushJsonData(initialMessage);
+
+	std::cout << "input format \"destination message\"" << std::endl;
+
+	while(true)
+	{
+		boost::shared_ptr<Json::Value> data(new Json::Value());
+		long int destination
+		std::cin >>
+
+		(*data)["destination"] = "123";
+		(*data)["abcd"] = 123;
+
+	}
+
+	conn.pushJsonData(data);
+
+	while(1);
+
+    return 0;
+}
+

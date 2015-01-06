@@ -1,0 +1,26 @@
+/*
+ * IoServiceSingleton.hpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+#ifndef IOSERVICESINGLETON_HPP_
+#define IOSERVICESINGLETON_HPP_
+
+#include <boost/asio.hpp>
+
+using namespace boost::asio;
+
+class IoServiceSingleton
+{
+	io_service & getInstance()
+	{
+		static io_service instance;
+		return instance;
+	}
+};
+
+
+
+#endif /* IOSERVICESINGLETON_HPP_ */

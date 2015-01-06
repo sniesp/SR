@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string.h>
+#include <sstream>
+#include <jsoncpp/json/json.h>
+
+#include <boost/asio.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/thread.hpp>
+
+using namespace boost;
+using namespace boost::asio;
+using namespace boost::asio::ip;
+
+void handler()
+{
+	while(1);
+}
+
+int main(int argc, char *argv[])
+{
+//	Json::Value value;
+//	value["integer"] = 123;
+//	value["string"] = std::string("abc");
+//
+//	std::stringstream ss;
+//	Json::StyledWriter writer;
+//	std::string serializedValue = writer.write(value);
+//
+//	std::cout << strlen(serializedValue.c_str()) << std::endl;
+//	std::cout << serializedValue.c_str() << std::endl;
+//
+//	Json::Value newValue;
+//	Json::Reader reader;
+//	reader.parse(serializedValue, newValue);
+//
+//	std::cout << writer.write(newValue) << std::endl;
+
+	io_service io_service;
+	tcp::acceptor acceptor(io_service, tcp::endpoint(tcp::v4(), 5555)); // port
+
+	// acceptor thread
+	// while 1
+	shared_ptr<tcp::socket> pSocket(new tcp::socket(io_service));
+	acceptor.accept(*pSocket);
+	thread thread(handler);
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
+

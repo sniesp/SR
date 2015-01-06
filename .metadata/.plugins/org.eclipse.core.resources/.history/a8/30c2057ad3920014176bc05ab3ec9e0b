@@ -1,0 +1,11 @@
+/*
+ * LocalServer.cpp
+ *
+ *  Created on: Jan 2, 2015
+ *      Author: slawek
+ */
+
+#include "LocalServer.hpp"
+
+LocalServer::LocalServer(unsigned short port) : ioService_()
+

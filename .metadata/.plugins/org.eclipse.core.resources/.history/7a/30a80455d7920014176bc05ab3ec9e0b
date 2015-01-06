@@ -1,0 +1,25 @@
+/*
+ * LocalServer.cpp
+ *
+ *  Created on: Jan 2, 2015
+ *      Author: slawek
+ */
+
+#include "LocalServer.hpp"
+
+
+
+LocalServer& LocalServer::getInstance()
+{
+    static LocalServer localServer;
+    return localServer;
+}
+
+LocalServer::LocalServer(unsigned short port) : port_(port), endpoint_(ip::tcp::v4(), port), acceptor_(ioService_, endpoint_)
+{
+    boost::shared_ptr<ip::tcp::socket> pSocket(new ip::tcp::socket());
+    acceptor_.async_accept(socket, boost::bind(&LocalServer::accept, this, pSocket));
+}
+
+
+

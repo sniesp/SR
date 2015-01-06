@@ -1,0 +1,5 @@
+			}
+			catch (std::runtime_error & e)
+			{
+				break;
+			}

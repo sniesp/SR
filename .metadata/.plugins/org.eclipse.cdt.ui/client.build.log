@@ -1,0 +1,10 @@
+20:14:50 **** Build of configuration Debug for project client ****
+make all 
+Building target: client
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -o "client"  ./main.o   -ljsoncpp -lboost_system -lboost_thread -lpthread
+Finished building target: client
+ 
+
+20:14:50 Build Finished (took 441ms)
+

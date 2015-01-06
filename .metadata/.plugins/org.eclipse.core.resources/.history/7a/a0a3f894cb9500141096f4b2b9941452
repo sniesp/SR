@@ -1,0 +1,21 @@
+#include <iostream>
+#include <boost/asio.hpp>
+
+#include "TcpAcceptor.hpp"
+#include "TcpConnection.hpp"
+
+int main(int argc, char *argv[])
+{
+	boost::asio::io_service io_service;
+
+    ip::tcp::resolver resolver(io_service);
+    ip::tcp::resolver::query query("127.0.0.1", "5555");
+    ip::tcp::resolver::iterator iterator = resolver.resolve(query);
+
+	TcpAcceptor acc(io_service, 5555);
+
+	while(1);
+
+    return 0;
+}
+
