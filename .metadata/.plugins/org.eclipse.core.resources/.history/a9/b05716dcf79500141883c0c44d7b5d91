@@ -1,0 +1,47 @@
+/*
+ * RpcServer.hpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+#ifndef RPCSERVER_HPP_
+#define RPCSERVER_HPP_
+
+#include <boost/asio.hpp>
+
+#include "TcpAcceptor.hpp"
+#include "TcpConnection.hpp"
+
+using namespace boost::asio;
+
+class RpcServer
+{
+public:
+	RpcServer(int gatewayId, io_service & io_service,
+			unsigned short port = 5555) :
+			gatewayId(gatewayId), acceptor(io_service, globalPort)
+	{
+	}
+
+private:
+	typedef boost::shared_ptr<TcpConnection> pConnection;
+	typedef boost::shared_ptr<Json::Value> pValue;
+	typedef std::list<pConnection> connectionList;
+	typedef std::map<int, pConnection> connectionMap;
+
+	void run();
+
+	int gatewayId;
+
+	TcpAcceptor acceptor;
+	std::list<pConnection> newConnections;
+
+	std::map<int, pConnection> globalConnections;
+	std::map<int, int> nodeMap; // this maps every node to its gateway
+	std::map<int, int> gatewayMap; // this stores info about all connections between gateways
+
+	std::map<int, pConnection> localConnections;
+};
+
+#endif /* RPCSERVER_HPP_ */

@@ -1,0 +1,22 @@
+/*
+ * RpcServer.cpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+void RpcServer::run()
+{
+	connectionList conns = localAcceptor.getConnections();
+	if (!conns.empty())
+	{
+		for(connectionList::iterator ii = conns.begin(); ii != conns.end(); ii++)
+		{
+			newConnections.push_back(*ii);
+		}
+	}
+
+
+}
+
+

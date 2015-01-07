@@ -1,0 +1,16 @@
+/*
+ * RpcServer.hpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+#ifndef RPCSERVER_HPP_
+#define RPCSERVER_HPP_
+
+class RpcServer
+{
+
+};
+
+#endif /* RPCSERVER_HPP_ */

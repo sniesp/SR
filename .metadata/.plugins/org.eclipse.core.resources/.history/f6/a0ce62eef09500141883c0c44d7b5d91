@@ -1,0 +1,39 @@
+/*
+ * RpcServer.cpp
+ *
+ *  Created on: Jan 6, 2015
+ *      Author: slawek
+ */
+
+void RpcServer::run()
+{
+	connectionList conns = localAcceptor.getConnections();
+	if (!conns.empty())
+	{
+		for(connectionList::iterator ii = conns.begin(); ii != conns.end(); ii++)
+		{
+			newConnections.push_back(*ii);
+		}
+	}
+
+	for(connectionList::iterator ii = newConnections.begin(); ii != newConnections.end(); ii++)
+	{
+		pValue pJsonValue(0);
+		try
+		{
+			if((*ii)->popJsonData(pJsonValue))
+			{
+
+			}
+		}
+		catch (std::runtime_error & e)
+		{
+			// connection lost
+			newConnections.erase(ii); // remove connection from connection lst
+			break;
+		}
+	}
+
+}
+
+
